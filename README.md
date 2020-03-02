@@ -3,9 +3,12 @@
 A Proof-of-concept of a running Symfony 5 application inside containers
 
 ```
-git clone git@gitlab.com:martinpham/symfony-5-docker.git
+git clone https://github.com/medmejri1990/sf5-docker.git
 
 cd symfony-5-docker
+download symfony 5
+- > run  symfony new --full src
+https://symfony.com/download
 
 cd docker
 
@@ -25,11 +28,6 @@ Composer is included
 ```
 docker-compose run php-fpm composer 
 ```
-
-To run fixtures
-
-```
-docker-compose run php-fpm bin/console doctrine:fixtures:load
 ```
 
 ### Webserver (Nginx)
