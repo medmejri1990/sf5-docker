@@ -1,5 +1,5 @@
 FROM node:lts
-LABEL maintainer="shibli049.com"
+LABEL maintainer="medmejri"
 # set working directory
 WORKDIR /usr/src/app
 # copy and install app dependencies
