@@ -5,13 +5,15 @@ A Proof-of-concept of a running Symfony 5 application inside containers
 ```
 git clone https://github.com/medmejri1990/sf5-docker.git
 
-cd symfony-5-docker
+cd sf5-docker
 download symfony 5
-- > run  symfony new --full src
+- > run  symfony new --full api
 https://symfony.com/download
 
+create new app  angular 
+https://angular.io/start
 cd docker
-
+docker-compose vuild
 docker-compose up
 ```
 
