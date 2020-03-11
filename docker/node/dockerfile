@@ -1,0 +1,16 @@
+FROM node:lts
+LABEL maintainer="shibli049.com"
+# set working directory
+WORKDIR /usr/src/app
+# copy and install app dependencies
+COPY package.json ./
+RUN npm install -g @angular/cli@latest
+RUN npm install
+# add app
+COPY . ./
+#RUN ls
+EXPOSE 4200
+# start app
+#RUN ls
+RUN ls
+CMD ["ng","serve","--host", "0.0.0.0"]

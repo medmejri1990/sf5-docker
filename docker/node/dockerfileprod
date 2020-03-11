@@ -1,0 +1,22 @@
+### STAGE 1: Build ###
+FROM node:11.6.0-alpine as builder
+WORKDIR /usr/src/app
+RUN apk update && apk add git
+COPY package.json ./
+RUN ls
+RUN npm install
+WORKDIR /usr/src/app
+COPY ./ .
+RUN ls
+RUN npm run build
+
+### STAGE 2: Run ###
+FROM node:11.6.0-alpine as run
+ARG TAG_VERSION
+env TAG_VERSION=$TAG_VERSION
+COPY --from=builder /usr/src/app/dist/test /dist
+COPY --from=builder /usr/src/app/server.js /server.js
+RUN npm install -g express
+ENV NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+
+CMD ["node", "/server.js"]
